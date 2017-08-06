@@ -20,7 +20,13 @@ router.post("/", function(req,res){
     });
 });
 
-router.put("/:id",)
+router.put("/:id", function(req,res) {
+    tasks.updateOne(req.params.id, function(){
+        res.redirect("/");
+    });
+});
+
+module.exports = router;
 
 
 
