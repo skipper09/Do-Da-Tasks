@@ -1,0 +1,33 @@
+<h1>To Do List:</h1>
+<h3>Tasks:</h3>
+
+<ul>
+    {{#each tasks}}
+        {{#unless this.complete}}
+            <li>
+                {{this.name}}
+
+                 <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="completed" value="true">
+                    <button type="submit">Mark complete</button>
+                </form>
+            </li>
+        {{/unless}}
+    {{/each}}
+</ul>
+
+<h3>Completed Tasks</h3>
+<ul>
+    {{#each tasks}}
+        {{#if this.complete}}
+            <li>
+                {{this.name}}
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="completed" value="false">
+                    <button type="submit">Mark incomplete</button>
+                </form>
+            </li>
+        {{/if}}
+    {{/each}}
+</ul>
+
