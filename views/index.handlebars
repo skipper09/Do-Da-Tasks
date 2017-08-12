@@ -5,12 +5,14 @@
     {{#each tasks}}
         {{#unless this.complete}}
             <li>
-                {{this.name}}
+                {{this.task_name}}
+                <br>
 
                  <form action="/{{this.id}}?_method=PUT" method="POST">
                     <input type="hidden" name="completed" value="true">
-                    <button type="submit">Mark complete</button>
+                    <button type="submit" >Mark complete</button>
                 </form>
+
             </li>
         {{/unless}}
     {{/each}}
@@ -21,7 +23,8 @@
     {{#each tasks}}
         {{#if this.complete}}
             <li>
-                {{this.name}}
+                {{this.task_name}}
+                <br>
                 <form action="/{{this.id}}?_method=PUT" method="POST">
                     <input type="hidden" name="completed" value="false">
                     <button type="submit">Mark incomplete</button>
@@ -30,4 +33,14 @@
         {{/if}}
     {{/each}}
 </ul>
+
+<h1>Add a Task</h1>
+<form class="create-form" action="?" method="POST">
+    <div>
+        <label for="task">Task:</label>
+        <input type="text" id="task">
+    </div>
+
+    <button type="submit">Add Task</button>
+</form>
 

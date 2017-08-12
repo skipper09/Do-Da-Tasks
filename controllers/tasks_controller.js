@@ -6,16 +6,16 @@ var express = require("express"),
 
 router.get("/", function(req,res){
     tasks.selectAll(function(data){
-        var dickButt = {
+        var hbsObject = {
             tasks: data
         };
-        console.log(dickButt);
-        res.render("index", dickButt);
+        // console.log(hbsObject);
+        res.render("index", hbsObject);
     });
 });
 
 router.post("/", function(req,res){
-    tasks.insertOne(req.param.task, function() {
+    tasks.insertOne(req.body.taskinput, function() {
         res.redirect("/");
     });
 });

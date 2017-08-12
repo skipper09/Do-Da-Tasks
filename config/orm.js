@@ -4,10 +4,21 @@ var orm = {
     selectAll: function(table, cb) {
         var queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, function(err, result){
-            if (err) throw err;
+            if (err) {
+                throw err
+            };
             cb(result);
-            console.log(result);
+            // console.log(result);
         });
+    },
+    selectOne: function(table, val, cb) {
+        var queryString = "SELECT ?? FROM " + table 
+        connection.query(queryString, [val], function(err, result){
+            if (err) {
+                throw err
+            };
+            cb(result);
+        })
     },
     insertOne: function(table, col, val, cb) {
         var queryString = "INSERT INTO ?? (??) VALUES (?)";
@@ -31,6 +42,6 @@ var orm = {
 
 // orm.selectAll("tasks", function(err, result){})
 // orm.insertOne("tasks", "task_name", "Drink wine", function(err, result){});
-orm.updateOne("tasks", "complete", false, "id", 9, function(err,result){});
+// orm.updateOne("tasks", "complete", false, "id", 9, function(err,result){});
 
 module.exports = orm;
