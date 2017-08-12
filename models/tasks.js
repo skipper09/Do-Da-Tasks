@@ -14,14 +14,9 @@ var tasks = {
         });
 
     },
-    updateOne: function(val2, cb) {
-        // var toggle;
-        // if () {
-        //     toggle = true
-        // } else {
-        //     toggle = false
-        // };
-        orm.updateOne("tasks", "complete", true, "id", val2, function(res){
+    updateOne: function(val1, val2, cb) {
+        var toggle = req.body.incomplete;
+        orm.updateOne("tasks", "complete", toggle, "id", val2, function(res){
             cb(res);
         });
     }
