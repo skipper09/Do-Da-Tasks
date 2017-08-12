@@ -15,8 +15,7 @@ var tasks = {
 
     },
     updateOne: function(val1, val2, cb) {
-        var toggle = req.body.incomplete;
-        orm.updateOne("tasks", "complete", toggle, "id", val2, function(res){
+        orm.updateOne("tasks", "complete", val1, "id", val2, function(res){
             cb(res);
         });
     }

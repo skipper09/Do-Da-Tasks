@@ -9,7 +9,6 @@ router.get("/", function(req,res){
         var hbsObject = {
             tasks: data
         };
-        // console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
@@ -21,7 +20,7 @@ router.post("/", function(req,res){
 });
 
 router.put("/:id", function(req,res) {
-    tasks.updateOne(req.params.id, function(){
+    tasks.updateOne(req.body.completed,req.params.id, function(){
         res.redirect("/");
     });
 });
