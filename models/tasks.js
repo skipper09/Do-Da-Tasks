@@ -5,7 +5,6 @@ var tasks = {
     selectAll: function(cb) {
         orm.selectAll("tasks", function(res) {
             cb(res);
-            // console.log(result);
         });
     },
     insertOne: function(val, cb) {
@@ -22,6 +21,3 @@ var tasks = {
 }
 
 module.exports = tasks;
-
-
-// tasks.selectAll(function(result){});
