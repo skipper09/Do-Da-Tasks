@@ -17,7 +17,12 @@ var tasks = {
         orm.updateOne("tasks", "complete", val1, "id", val2, function(res){
             cb(res);
         });
-    }
+    },
+    deleteOne: function(id, cb) {
+        orm.deleteOne("table", id, function(res){
+            cb(res)
+        });
+    };
 }
 
 module.exports = tasks;

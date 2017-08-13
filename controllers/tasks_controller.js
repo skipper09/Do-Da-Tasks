@@ -18,7 +18,13 @@ router.post("/", function(req,res){
 });
 
 router.put("/:id", function(req,res) {
-    tasks.updateOne(req.body.completed,req.params.id, function(){
+    tasks.updateOne(req.body.completed,req.params.id, function() {
+        res.redirect("/");
+    });
+});
+
+router.delete("/:id", function(req,res){
+    tasks.deleteOne(req.params.id, function() {
         res.redirect("/");
     });
 });
