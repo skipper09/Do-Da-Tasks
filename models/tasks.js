@@ -18,11 +18,11 @@ var tasks = {
             cb(res);
         });
     },
-    deleteOne: function(id, cb) {
-        orm.deleteOne("table", id, function(res){
+    deleteOne: function(val, cb) {
+        orm.deleteOne("tasks", "id", val, function(res){
             cb(res)
         });
-    };
+    }
 }
 
 module.exports = tasks;
